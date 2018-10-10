@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="TestNestedList"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.testnestedlist.client.Client</class>
+        <class>com.company.testnestedlist.project.Project</class>
+    </persistence-unit>
+</persistence>

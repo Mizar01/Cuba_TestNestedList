@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.testnestedlist.web.project.ProjectEdit"
+        datasource="projectDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.testnestedlist.web.project">
+    <dsContext>
+        <datasource id="projectDs"
+                    class="com.company.testnestedlist.project.Project"
+                    view="_local"/>
+        <collectionDatasource id="clientsDs"
+                              class="com.company.testnestedlist.client.Client"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from testnestedlist$Client e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="projectDs">
+            <column width="250px">
+                <field property="code"/>
+                <field optionsDatasource="clientsDs"
+                       property="client"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
